@@ -2,6 +2,7 @@
 30 days and 30 projects on Vanilla JavaScript
 
 PROJECT LINKS
+![html
 
 |  No of Days   |     Project Name                                                       |Short Description                  |
 |---------------|:-----------------------------------------------------------------------|-----------------------------------|
