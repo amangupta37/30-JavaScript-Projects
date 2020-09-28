@@ -12,4 +12,4 @@ PROJECT LINKS
 | Day 05        |  [Calculator](https://calculator-amangupta.netlify.app/)               |Calculator using DOM               |
     
 
-![alt text]()
+
