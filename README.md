@@ -12,4 +12,4 @@ PROJECT LINKS
 | Day 05        |  [Calculator](https://calculator-amangupta.netlify.app/)               |Calculator using DOM               |
     
 
-![alt text](https://hdwallpaperim.com/wp-content/uploads/2017/09/16/53322-technology-binary-numbers.jpg)
+![alt text]()
