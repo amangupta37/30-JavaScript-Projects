@@ -1,8 +1,10 @@
 # 30-days-of-JavaScript
 30 days and 30 projects on Vanilla JavaScript
 
+![html,css,js](https://toppng.com/uploads/preview/html5-js-css3-logo-png-11536003913vd86ju9pc1.png)
+
+
 PROJECT LINKS
-![html
 
 |  No of Days   |     Project Name                                                       |Short Description                  |
 |---------------|:-----------------------------------------------------------------------|-----------------------------------|
