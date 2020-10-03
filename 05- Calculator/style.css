@@ -11,9 +11,10 @@
 	display: grid;
 	justify-content: center;
 	align-content: center;
-	min-height: 100vh;
+	min-height: 80vh;
 	grid-template-columns: repeat(4, 85px);
 	grid-template-rows: minmax(120px, auto) repeat(5, 100px);
+	border-radius: 12px;
 	
   }
   
@@ -23,6 +24,7 @@
 	border: 1px solid white;
 	outline: none;
 	background-color: rgba(255, 255, 255, .75);
+	border-radius: 12px;
   }
   
   .calculator-grid > button:hover {
