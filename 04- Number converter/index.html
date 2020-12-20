@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+   
+   <br><center><h1 style="color:white;"> Number Converter using JS</h1></center> 
+   
+  
+ <center><form id="msform">
+
+    <fieldset>
+
+    <h2 class="fs-title" id="title">Convert <span style="color:crimson"> Decimal value</span>  to</h2>
+      <input type="text"  id="decval" placeholder="Enter Decimal value" />
+
+      <input type="button"  id="btn" class="next action-button" onclick="myFunction()" value="Convert"/>
+
+      <p id="ntitle">Binary value:</p><input type="text"  id="binval" placeholder="Binary value" readonly />
+
+      
+      <p>Hexadecimal value:</p> <input type="text" id="hexval"  placeholder="Hexa value"  readonly />
+      <p>Octadecimal value:</p>  <input type="text" id="octval" placeholder="Octa value"  readonly />
+      
+      <a href="index.html"><input type="button"  class="next action-button"  style="background-color:darkgoldenrod;"   value="Reload">  </a>
+     
+     
+      <input type="button" style="background-color:crimson;" class="next action-button" onclick="myFunction3()" value="Binary Conv" /> 
+     <p>* Reload for another New conversion</p>
+    </fieldset>
+  </form></center>
+</body>
+<script src="convert.js"></script>
+</html>
