@@ -5,5 +5,5 @@
 
 | Application Name | Description |
 | ---| --- |
-| git status | List all new or modified files |
+| 01- Drump  | Created a Drum by using vanilla JS |
 | git diff | Show file differences that haven't been staged |
