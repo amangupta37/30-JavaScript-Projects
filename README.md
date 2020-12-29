@@ -5,7 +5,7 @@
 
 |Days| Application Name | Description |
 |----| ---| --- |
-|Day - 01| Drump Kit  | Created a Drum by using vanilla JS |
+|Day - 01| Drump Kit  | Created a Drum Kit by using vanilla JS |
 |Day - 02| Clock  | Created a Clock by using vanilla JS |
 |Day - 03| Image Editor  | Created a Image Editor by using vanilla JS |
 |Day - 04| Number Converter  | Created a Number Converter by using vanilla JS |
