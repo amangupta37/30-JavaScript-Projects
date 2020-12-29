@@ -6,4 +6,10 @@
 |Days| Application Name | Description |
 |----| ---| --- |
 |Day - 01| Simple Drump  | Created a Drum by using vanilla JS |
-|| git diff | Show file differences that haven't been staged |
+|Day - 02| Simple Drump  | Created a Drum by using vanilla JS |
+|Day - 03| Simple Drump  | Created a Drum by using vanilla JS |
+|Day - 04| Simple Drump  | Created a Drum by using vanilla JS |
+|Day - 05| Simple Drump  | Created a Drum by using vanilla JS |
+|Day - 06| Simple Drump  | Created a Drum by using vanilla JS |
+|Day - 07| Simple Drump  | Created a Drum by using vanilla JS |
+
