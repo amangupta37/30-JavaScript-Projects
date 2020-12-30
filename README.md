@@ -11,5 +11,5 @@
 |Day - 04| [Number Converter](https://js-number-converter-amangupta.netlify.app/)  | Created a Number Converter by using vanilla JS |
 |Day - 05| [Calculator](https://calculator-amangupta.netlify.app/)  | Created a Calculator by using vanilla JS |
 |Day - 06| [To-Do List](https://to-do-app-amangupta.netlify.app/)  | Created a To-Do List by using vanilla JS |
-|Day - 07| Paint App  | Created a Paint App by using vanilla JS |
+|Day - 07| [Paint App](https://paint-app-amangupta.netlify.app/)  | Created a Paint App by using vanilla JS |
 
