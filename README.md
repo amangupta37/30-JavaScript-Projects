@@ -3,7 +3,7 @@
 
 -----------------------------------------------------------------------------------
 
-|Days| Application Name | Description |
+|Days| Web Apps | Description |
 |----| ---| --- |
 |Day - 01| [Drump Kit](https://gifted-jsdrumkit-amangupta.netlify.app/) | Created a Drum Kit by using vanilla JS |
 |Day - 02| [Clock](https://js-analog-clock-amangupta.netlify.app/)  | Created a Clock by using vanilla JS |
