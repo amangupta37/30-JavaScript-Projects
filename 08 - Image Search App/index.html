@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Image Search Engine</title>
+    <link href="style.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+</head>
+<body>
+    <div id="header-box">
+        <h1>Image Search Engine</h1>
+        <img id ="chm" src="/chm.jpeg"/>
+    </div>    
+   <div id="bg-img">
+    <form id="form-box" autocomplete="off">
+      <div id="icon-box">
+        <img id="icon" src="/icon.png"/>
+      </div>
+       
+        <div id="styl-inpt">
+          
+            <input id="inpt-box" type="text" placeholder="Search Your Image here !!!" required>
+           
+        </div>
+
+        <div id="btn">
+            <button id="clk" type="button"><div> Search...<i class="fa fa-search"></i></div></button>
+        </div>
+        <div id="load-box">
+            <img id="load-size" src="/load.png" ><p id="load-text"> Reload</p>
+        </div>
+       
+    </form>
+    
+   </div>
+    <div id="box">
+      <p id="wait-msg"></p>
+      
+    </div>
+    
+   
+</body>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+
+<script src="app.js"></script>
+
+</html>
+
+
+
