@@ -1,47 +1,77 @@
-const btn = document.getElementById("clk");
-const input = document.getElementById("inpt-box");
-//const output = document.getElementById("box");
-const wmsg= document.getElementById("wait-msg")
-const reload=document.getElementById("load-size");
+import { URL, ClientId } from "./API.js";
 
-const url = "https://api.unsplash.com/search/photos?query=";
+// Targeted Elements.
+const SearchButton = document.getElementById("search-button");
+const InputField = document.getElementById("input-field");
+const HelperTextBox = document.getElementById("helper-text");
+const SearchResultBox = document.getElementById("box");
+const ResetButton = document.getElementById("reset-button");
 
+// Total number of images to show in UI after API response.
+const NumberOfImagesPerPage = 30;
 
-function recivedata(datain){
-    return url + datain + "&client_id=1M2Bjw3fQ9ZcA8inqDboIgXzHhHL2CqsELWniCElfbQ&per_page=30";
-}
+const ConfigureRequest = (SearchQuery) => {
+    const getRequestPramsConfigure = `${URL}${SearchQuery}${ClientId}${NumberOfImagesPerPage}`;
+    return getRequestPramsConfigure;
+};
 
- btn.addEventListener("click", function(){
-
-    console.log("one click");
-   console.log(input.value);
-
-  
-   const inputdata = input.value;
-    // output.innerText=input.value;
-    if(inputdata!="")
-    {
-    wmsg.innerText="Wait 🔄 Fetching your Result It will display here 👇  !!!";
+const ClearPreviousSearchResult = () => {
+    const hasImagePlaceHolder = document.getElementById("images-placeholder");
+    if (hasImagePlaceHolder) {
+        hasImagePlaceHolder.remove();
     }
-    else
-    {
-      alert("Enter a Valid Input");
-     
+};
+
+const AppendImagesInUI = (Images) => {
+    //create a placeholder to hold all images
+    const DivElement = document.createElement("div");
+    DivElement.setAttribute("id", "images-placeholder");
+
+    Images?.map((image) => {
+        const FetchedImageSource = image?.urls?.regular; //feteched image source form API
+
+        //create a img element
+        const ImageElement = document.createElement("img");
+        ImageElement.setAttribute("src", FetchedImageSource);
+
+        DivElement.appendChild(ImageElement); //appending img element inside the image placeholder
+
+        SearchResultBox.appendChild(DivElement); //appending image placeholder inside the SearchResultBox
+    });
+};
+
+const FetchUserQuery = (UserQuery) => {
+    fetch(ConfigureRequest(UserQuery))
+        .then((response) => response.json())
+        .then((fetechedQuery) => {
+            HelperTextBox.innerText = "";
+            const QueryResponse = fetechedQuery?.results;
+            if (QueryResponse.length > 0) {
+                AppendImagesInUI(QueryResponse);
+            } else {
+                HelperTextBox.innerText = "Result Not Found";
+            }
+        })
+        .catch((err) => {
+            alert("Something went wrong!!!", err);
+        });
+};
+
+// Add event listeners.
+
+SearchButton.addEventListener("click", function () {
+    const UserQuery = InputField.value;
+
+    if (UserQuery !== "") {
+        ClearPreviousSearchResult();
+        HelperTextBox.innerText =
+            "Wait 🔄 Fetching your Result It will display here 👇  !!!";
+        FetchUserQuery(UserQuery);
+    } else {
+        alert("Enter a Valid Input");
     }
-     fetch(recivedata(inputdata))
-     .then(response => response.json())
-     .then(json => {
-      json.results.forEach(photo => {
-       
-     let newres = `<img src="${photo.urls.regular}">`;
-     $("#box").append(newres);
+});
 
-   
-   });
- });
-
- });
-
- reload.addEventListener("click", function(){
-  location.reload();
- })
+ResetButton.addEventListener("click", function () {
+    location.reload();
+});
