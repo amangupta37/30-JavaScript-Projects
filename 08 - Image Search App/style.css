@@ -1,36 +1,29 @@
-*{
+* {
     box-sizing: border-box;
     margin: 0;
     padding: 0;
 }
-body{
+body {
     background-color: #000;
-
 }
-#header-box{
-    
+#header-box {
     margin: 0 auto;
     width: 100%;
     height: 30rem;
-  background-color: #000;
+    background-color: #000;
     clip-path: polygon(0 0, 100% 0%, 100% 57%, 0 78%);
-
-
 }
-h1{
-    
+h1 {
     text-align: center;
     position: relative;
-    top:2rem;
+    top: 2rem;
     font-family: monospace;
     font-size: 4rem;
-    color:rgb(28, 235, 123);
-    
-
+    color: rgb(28, 235, 123);
 }
 
-#bg-img{
-    background: url(/bgdev.jpeg);
+#bg-img {
+    background: url(./Assets/bgdev.jpeg);
     background-repeat: no-repeat;
     background-position: center;
     background-size: cover;
@@ -39,9 +32,9 @@ h1{
     border-radius: 1rem;
     height: 30rem;
     position: relative;
-    bottom:6.5rem;
+    bottom: 6.5rem;
 }
-#form-box{
+#form-box {
     box-sizing: border-box;
     margin: 0 auto;
     width: 100%;
@@ -52,21 +45,19 @@ h1{
     background-color: #2d3436;
     background-image: linear-gradient(315deg, #2d3436 0%, #000000 74%);
     opacity: 0.8;
-   
 }
-#styl-inpt{
+#styl-inpt {
     margin: 0 auto;
     position: relative;
-    top:1rem;
+    top: 1rem;
     border: none;
     width: 97%;
     height: 10rem;
-    
 }
-#inpt-box{
+#input-field {
     box-sizing: border-box;
     position: relative;
-    top:3rem;
+    top: 3rem;
     width: 100%;
     height: 3.5rem;
     text-align: center;
@@ -74,20 +65,19 @@ h1{
     font-family: monospace;
     border-radius: 3rem;
     border: solid whitesmoke 2px;
-    background-color:whitesmoke;
-   
+    background-color: whitesmoke;
 }
 
-#btn{
+#btn {
     position: relative;
-   
-    margin:0 auto;
+
+    margin: 0 auto;
     width: 37%;
     height: 4.5rem;
 }
-#clk{
+#search-button {
     position: relative;
-   
+
     width: 100%;
     height: 4rem;
     margin: 0 auto;
@@ -97,94 +87,100 @@ h1{
     font-family: monospace;
     border-radius: 0.5rem;
 }
-#box{
+#box {
     position: relative;
-    bottom:08rem;
+    bottom: 08rem;
     width: 100%;
     height: 20rem;
- 
 }
-img{
+img {
     position: relative;
     margin: 0 auto;
-    top:3.5rem;
-    width:22rem;
+    top: 3.5rem;
+    width: 22rem;
     height: 15.8rem;
-    left:0.1rem;
-   
+    left: 0.1rem;
 }
-#wait-msg{
+#helper-text {
     position: relative;
-    top:2rem;
-    color:#000;
-    font-family:monospace;
+    top: 2rem;
+    color: #000;
+    font-family: monospace;
     font-size: x-large;
     text-align: center;
     color: red;
 }
-#load-size{
+#reset-button {
     position: relative;
-    top:5rem;
-    left:1rem;
+    top: 5rem;
+    left: 1rem;
     width: 3rem;
     height: 3rem;
     z-index: 5;
     background-color: white;
     border-radius: 50%;
 }
-#load-size:hover{
+#reset-button:hover {
     animation: spin 0.1s linear infinite;
 }
 @keyframes spin {
-    0% { transform: rotate(0deg); }
-    50% { transform: rotate(-90deg); }
-    100% { transform: rotate(360deg); }
-  }
- 
-  #load-text{
-      color:white;
-      position: relative;
-      top:2.2rem;
-      margin-left: 5rem;
-      font-size: 2rem;
-      font-family: monospace;
-     
-  }
-#pre-load{
-    width: 45%;
-    height: 12rem;
-   margin: auto;
-   z-index: -1;
-}
-#n-load{
-    width:100%;
-    height: 9rem;
-    z-index: -1;
-   
+    0% {
+        transform: rotate(0deg);
+    }
+    50% {
+        transform: rotate(-90deg);
+    }
+    100% {
+        transform: rotate(360deg);
+    }
 }
 
-#icon{
+#load-text {
+    color: white;
+    position: relative;
+    top: 2.2rem;
+    margin-left: 5rem;
+    font-size: 2rem;
+    font-family: monospace;
+}
+#pre-load {
+    width: 45%;
+    height: 12rem;
+    margin: auto;
+    z-index: -1;
+}
+#n-load {
+    width: 100%;
+    height: 9rem;
+    z-index: -1;
+}
+
+#icon {
     box-sizing: border-box;
     position: relative;
     width: 15rem;
-    height:5rem;
+    height: 5rem;
     left: 3rem;
-   
 }
 
-#chm{
-
-    width:6rem;
+#chm {
+    width: 6rem;
     height: 6rem;
     border-radius: 50%;
     position: relative;
-    top:2.5rem;
-    left:8rem;
-    animation: rot 0.5s linear infinite ;
+    top: 2.5rem;
+    left: 8rem;
+    animation: rot 0.5s linear infinite;
 }
 @keyframes rot {
-    0% { transform: rotate(0deg); }
-    50% { transform: rotate(90deg); }
-   
-    100% { transform: rotate(360deg); }
-  }
+    0% {
+        transform: rotate(0deg);
+    }
+    50% {
+        transform: rotate(90deg);
+    }
+
+    100% {
+        transform: rotate(360deg);
+    }
+}
