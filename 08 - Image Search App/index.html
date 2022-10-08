@@ -11,39 +11,47 @@
         />
     </head>
     <body>
-        <div id="header-box">
-            <h1>Image Search Engine</h1>
-            <img id="chm" src="./Assets/chm.jpeg" />
-        </div>
-        <div id="bg-img">
-            <form id="form-box" autocomplete="off">
-                <div id="icon-box">
-                    <img id="icon" src="./Assets/icon.png" />
+        <header>
+            <div class="HeaderContent">
+                <div class="HeaderLeft">
+                    <div class="HeaderLogo">
+                        <img src="./Assets/google.png" alt="logo" />
+                    </div>
+                    <div class="HeaderSerachBar">
+                        <input type="text" />
+                        <div class="Icons">
+                            <div class="Icon Voice">
+                                <img src="./Assets/mic.png" alt="mic" />
+                            </div>
+                            <div class="Icon Camera">
+                                <img
+                                    src="https://fonts.gstatic.com/s/i/productlogos/lens_camera/v1/192px.svg"
+                                    alt="lens"
+                                />
+                            </div>
+                            <div class="Icon Search">
+                                <img src="./Assets/search.png" alt="search" />
+                            </div>
+                        </div>
+                    </div>
                 </div>
-
-                <div id="styl-inpt">
-                    <input
-                        id="input-field"
-                        type="text"
-                        placeholder="Search Your Image here !!!"
-                        required
-                    />
+                <div class="HeaderRight">
+                    <div class="Tools">
+                        <div class="ToolsIcon Settings">
+                            <img src="./Assets/setting.svg" alt="" />
+                        </div>
+                        <div class="ToolsIcon Menu">
+                            <img src="./Assets/Menu.svg" alt="" />
+                        </div>
+                        <div class="ToolsIcon User">
+                            <h1>U</h1>
+                        </div>
+                    </div>
                 </div>
-
-                <div id="btn">
-                    <button id="search-button" type="button">
-                        <div>Search...<i class="fa fa-search"></i></div>
-                    </button>
-                </div>
-                <div id="load-box">
-                    <img id="reset-button" src="./Assets/load.png" />
-                    <p id="load-text">Reload</p>
-                </div>
-            </form>
-        </div>
-        <div id="box">
-            <p id="helper-text"></p>
-        </div>
+            </div>
+        </header>
+        <nav></nav>
+        <section></section>
     </body>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
     <script type="module" src="App.js"></script>
