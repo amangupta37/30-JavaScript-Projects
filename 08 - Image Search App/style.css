@@ -158,3 +158,43 @@ input {
     border: none;
     color: #000000de;
 }
+
+.SearchSuggestions {
+    padding: 2rem;
+    display: flex;
+    gap: 2rem;
+}
+.SuggestionCard {
+    width: 150px;
+    height: 60px;
+    border: 0.1px solid #c1c3c4;
+    border-radius: 1rem;
+    display: flex;
+    padding: 0.5rem;
+    gap: 2rem;
+    align-items: center;
+}
+
+.SuggestionCard:hover {
+    cursor: pointer;
+}
+.SuggestionImage {
+    width: 60px;
+    height: 100%;
+}
+.SuggestionImage img {
+    width: 100%;
+    height: 100%;
+}
+
+.SuggestionText {
+    width: 100%;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+.SuggestionText h3 {
+    font-weight: 500;
+    font-size: 1.8rem;
+    color: #000000de;
+}
