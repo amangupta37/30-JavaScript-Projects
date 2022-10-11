@@ -25,9 +25,14 @@ input {
     border: none;
     outline: none;
     padding-left: 2rem;
-    font-size: 2rem;
+    font-weight: 400;
+    font-size: 1.4rem;
     color: #000000de;
     word-wrap: break-word;
+}
+
+a {
+    text-decoration: none;
 }
 
 .HeaderContent {
@@ -179,7 +184,7 @@ input {
     cursor: pointer;
 }
 .SuggestionImage {
-    width: 60px;
+    width: 80px;
     height: 100%;
 }
 .SuggestionImage img {
@@ -197,4 +202,26 @@ input {
     font-weight: 500;
     font-size: 1.8rem;
     color: #000000de;
+}
+
+.SearchImagesResult {
+    /* background-color: red; */
+    padding: 2rem;
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr 1fr;
+    gap: 3rem;
+}
+
+.SearchImageCard {
+    max-width: 350px;
+    height: 220px;
+    position: relative;
+    background-color: #c1c3c4;
+}
+
+.SearchImageCard:hover {
+    box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+    position: relative;
+    z-index: 1;
+    cursor: pointer;
 }
