@@ -13,13 +13,16 @@
     box-sizing: border-box;
     font-family: arial, sans-serif;
 }
+
 html {
     font-size: 62.5%;
     scroll-behavior: smooth;
 }
+
 img {
     width: 100%;
 }
+
 input {
     width: 100%;
     height: 100%;
@@ -35,11 +38,17 @@ input {
 a {
     text-decoration: none;
 }
+
 header {
     position: sticky;
     top: 0;
     background-color: #ffffff;
     z-index: 1000;
+}
+
+span {
+    color: #2962ff;
+    cursor: pointer;
 }
 
 .HeaderContent {
@@ -143,10 +152,13 @@ header {
     color: #5f6368;
     position: relative;
 }
+.Item:hover {
+    cursor: pointer;
+}
 .ItemText {
     font-size: 1.6rem;
 }
-.Item:hover {
+.AciveItem {
     color: #1a73e8;
     cursor: pointer;
     border-bottom: 3px solid #1a73e8;
@@ -175,6 +187,7 @@ header {
     padding: 2rem;
     display: flex;
     gap: 2rem;
+    display: none;
 }
 .SuggestionCard {
     width: 150px;
@@ -211,18 +224,20 @@ header {
     color: #000000de;
 }
 
-.SearchImagesResult {
+.SearchImagesPlaceholder {
     padding: 2rem;
     display: grid;
     grid-template-columns: 1fr 1fr 1fr 1fr;
-    gap: 3rem;
+    gap: 2rem;
 }
 
 .SearchImageCard {
-    max-width: 350px;
-    height: 220px;
-    position: relative;
-    background-color: #c1c3c4;
+    background-color: #ffffff;
+}
+
+.SearchImageCard img {
+    width: 100%;
+    height: 100%;
 }
 
 .SearchImageCard:hover {
@@ -230,4 +245,92 @@ header {
     position: relative;
     z-index: 1;
     cursor: pointer;
+}
+.ErrorTextBox {
+    display: block;
+    padding: 2rem;
+}
+.ResultNotFound {
+    display: none;
+    padding: 2rem;
+    border: 1px solid #dfe1e5;
+    gap: 4rem;
+}
+
+.NotFoundLogo {
+    display: inline-block;
+    margin: 0;
+    width: 60px;
+    height: 60px;
+    padding: 0.5rem;
+    background-color: #fef7e0;
+    border-radius: 1rem;
+    display: grid;
+    place-items: center;
+    cursor: pointer;
+}
+
+.NotFoundHelperText h2 {
+    font-size: 2.4rem;
+    font-weight: 400;
+    line-height: 32px;
+    color: #202124;
+}
+.SerachTips h4 {
+    font-size: 1.4rem;
+    font-weight: 400;
+    line-height: 3.2rem;
+    color: #202124;
+}
+
+.TipsList {
+    padding-left: 1.5rem;
+    font-size: 1.4rem;
+    font-weight: 400;
+    line-height: 2rem;
+    color: #3c4043;
+}
+
+.SerachTips p {
+    font-size: 1.4rem;
+    font-weight: 400;
+    line-height: 2rem;
+    margin-top: 1rem;
+    color: #3c4043;
+}
+.SomethingWentWrong {
+    width: 100%;
+    height: 50vh;
+    display: none;
+    place-items: center;
+}
+.WentWrongBox {
+    width: 50%;
+    background-color: #e0e0e0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 3rem;
+    padding: 4rem;
+    border-radius: 2rem;
+}
+
+.WarningIcon {
+    width: 100px;
+    height: 100px;
+}
+
+.WarningText h1 {
+    font-size: 3rem;
+    font-weight: 400;
+    line-height: 3.2rem;
+    color: #202124;
+}
+
+.WarningText p {
+    text-align: center;
+    font-size: 1.4rem;
+    font-weight: 400;
+    line-height: 4rem;
+    color: #202124;
 }
