@@ -19,7 +19,7 @@
                         <img src="./Assets/google.png" alt="logo" />
                     </div>
                     <div class="HeaderSerachBar">
-                        <input type="text" />
+                        <input type="text" id="input-field" />
                         <div class="Icons">
                             <div class="Icon Voice">
                                 <img src="./Assets/mic.png" alt="mic" />
@@ -30,7 +30,7 @@
                                     alt="lens"
                                 />
                             </div>
-                            <div class="Icon Search">
+                            <div class="Icon Search" id="search-button">
                                 <img src="./Assets/search.png" alt="search" />
                             </div>
                         </div>
@@ -61,7 +61,7 @@
             <div class="NavBar">
                 <div class="NavBarLeftContent">
                     <div class="NavList">
-                        <div class="Item">
+                        <div class="Item All">
                             <div class="ItemIcon">
                                 <img
                                     src="./Assets/NavIcons/Search.svg"
@@ -70,31 +70,31 @@
                             </div>
                             <div class="ItemText">All</div>
                         </div>
-                        <div class="Item">
+                        <div class="Item Image">
                             <div class="ItemIcon">
                                 <img src="./Assets/NavIcons/Image.svg" alt="" />
                             </div>
                             <div class="ItemText">Images</div>
                         </div>
-                        <div class="Item">
+                        <div class="Item Videos">
                             <div class="ItemIcon">
                                 <img src="./Assets/NavIcons/Video.svg" alt="" />
                             </div>
                             <div class="ItemText">Videos</div>
                         </div>
-                        <div class="Item">
+                        <div class="Item News">
                             <div class="ItemIcon">
                                 <img src="./Assets/NavIcons/News.svg" alt="" />
                             </div>
                             <div class="ItemText">News</div>
                         </div>
-                        <div class="Item">
+                        <div class="Item Books">
                             <div class="ItemIcon">
                                 <img src="./Assets/NavIcons/Books.svg" alt="" />
                             </div>
                             <div class="ItemText">Books</div>
                         </div>
-                        <div class="Item">
+                        <div class="Item More">
                             <div class="ItemIcon">
                                 <img src="./Assets/NavIcons/More.svg" alt="" />
                             </div>
@@ -120,7 +120,8 @@
                 </div>
             </div>
         </nav>
-        <section class="SearchSuggestions">
+
+        <section class="SearchSuggestions" id="search-suggestion-card">
             <div class="SuggestionCard">
                 <div class="SuggestionImage">
                     <img src="./Assets/devlogo.jpeg" alt="" />
@@ -147,21 +148,49 @@
                 </div>
             </div>
         </section>
-        <section class="SearchImagesResult">
-            <div class="SearchImageCard">1</div>
-            <div class="SearchImageCard">2</div>
-            <div class="SearchImageCard">3</div>
-            <div class="SearchImageCard">4</div>
-            <div class="SearchImageCard">5</div>
-            <div class="SearchImageCard">6</div>
-            <div class="SearchImageCard">7</div>
-            <div class="SearchImageCard">8</div>
-            <div class="SearchImageCard">9</div>
-            <div class="SearchImageCard">10</div>
-            <div class="SearchImageCard">11</div>
-            <div class="SearchImageCard">12</div>
-            <div class="SearchImageCard">13</div>
-            <div class="SearchImageCard">14</div>
+        <section class="SearchImagesResult" id="search-results">
+            <div class="ErrorTextBox" id="error-text-box">
+                <div class="ResultNotFound" id="result-not-found">
+                    <div class="NotFoundLogo">
+                        <img src="./Assets/NotFound/Search.svg" alt="" />
+                    </div>
+                    <div class="NotFoundHelperText">
+                        <h2>
+                            Looks like there aren’t any matches for your search
+                        </h2>
+
+                        <div class="SerachTips">
+                            <h4>Search tips</h4>
+                            <div class="TipsList">
+                                <ul>
+                                    <li>
+                                        Make sure all words are spelled
+                                        correctly
+                                    </li>
+                                    <li>Try different or more general words</li>
+                                    <li>Try fewer words</li>
+                                </ul>
+                            </div>
+
+                            <p>
+                                Check out <span>other tips</span> for searching
+                                on Google
+                            </p>
+                        </div>
+                    </div>
+                </div>
+                <div class="SomethingWentWrong" id="something-went-wrong">
+                    <div class="WentWrongBox">
+                        <div class="WarningIcon">
+                            <img src="./Assets/NotFound/warning.png" alt="" />
+                        </div>
+                        <div class="WarningText">
+                            <h1>Oops! Something went wrong.</h1>
+                            <p>Try Searching again or Loading the page</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
         </section>
     </body>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
