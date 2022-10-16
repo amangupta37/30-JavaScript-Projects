@@ -349,16 +349,16 @@ span {
 /* disable UI for mobile and tablets */
 @media screen and (max-width: 980px) {
     header {
-        display: none;
+        display: none !important;
     }
     nav {
-        display: none;
+        display: none !important;
     }
     .SearchSuggestions {
-        display: none;
+        display: none !important;
     }
     .SearchImagesResult {
-        display: none;
+        display: none !important;
     }
     .DeviceSupportWarning {
         width: 100%;
