@@ -11,16 +11,16 @@ const ResultNotFoundModal = document.getElementById("result-not-found");
 const SomethingWentWrongModal = document.getElementById("something-went-wrong");
 const Loader = document.getElementById("loader");
 
-// Total number of images requested
+// Total number of images requested.
 const NumberOfImagesPerPage = 30;
 
-// Action for configuring query params
+// Action for configuring query params.
 const ConfigureRequest = (SearchQuery) => {
     const getRequestPramsConfigure = `${URL}${SearchQuery}${ClientId}${NumberOfImagesPerPage}`;
     return getRequestPramsConfigure;
 };
 
-// Action for removing search results
+// Action for removing search results.
 const ClearPreviousSearchResult = () => {
     const hasImagePlaceHolder = document.getElementById("images-placeholder");
 
@@ -33,7 +33,7 @@ const ClearPreviousSearchResult = () => {
     RemoveErrorBox(); // Remove if any error screen present.
 };
 
-// Action for handling active item in nav
+// Action for handling active item in nav.
 const CheckActiveItemInNav = (clickedNavItem) => {
     const NavItems = ["All", "Image", "Videos", "News", "Books", "More"]; // Items present in nav bar.
     NavItems.map((NavItem, index) => {
@@ -45,7 +45,7 @@ const CheckActiveItemInNav = (clickedNavItem) => {
     });
 };
 
-// Action for adding images in UI
+// Action for adding images in UI.
 const AppendImagesInUI = (Images) => {
     // Create a placeholder to hold all images.
     const DivElement = document.createElement("div");
@@ -72,7 +72,7 @@ const AppendImagesInUI = (Images) => {
     RemoveLoader();
 };
 
-// Action for handling error popup
+// Action for handling error popup.
 const ShowErrorBox = (ErrorCode) => {
     ErrorTextBox.style.display = "block";
     if (ErrorCode === 4000) {
@@ -90,7 +90,7 @@ const RemoveErrorBox = () => {
     SomethingWentWrongModal.style.display = "none";
 };
 
-// Action for handling loader
+// Action for handling loader.
 const AddLoader = () => {
     Loader.style.display = "grid";
 };
@@ -99,7 +99,7 @@ const RemoveLoader = () => {
     Loader.style.display = "none";
 };
 
-// Action for handling search suggestions section
+// Action for handling search suggestions section.
 const AddSearchSuggestions = () => {
     SuggestionCardSection.style.display = "flex";
 };
@@ -108,7 +108,7 @@ const RemoveSearchSuggestions = () => {
     SuggestionCardSection.style.display = "none";
 };
 
-// Action for handling API call
+// Action for handling API call.
 const FetchUserQuery = (UserQuery) => {
     fetch(ConfigureRequest(UserQuery))
         .then((response) => response.json())
@@ -119,19 +119,19 @@ const FetchUserQuery = (UserQuery) => {
                 AddSearchSuggestions();
                 AppendImagesInUI(QueryResponse);
             } else {
-                const ErrorCode = 4000; // Status code for search result not found.
+                const ErrorCode = 4000; // Custom status code for search result not found.
                 ShowErrorBox(ErrorCode);
             }
         })
         .catch((err) => {
-            const ErrorCode = 5000; // Status code for failed to fetch data from server.
+            const ErrorCode = 5000; // Custom status code for failed to fetch data from server.
             setTimeout(() => {
                 ShowErrorBox(ErrorCode);
             }, 5000);
         });
 };
 
-// Action for initiating search
+// Action for initiating search.
 const InitiateUserQuerySearch = (UserQuery) => {
     if (UserQuery !== "") {
         ClearPreviousSearchResult();
