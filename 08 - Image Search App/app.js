@@ -161,6 +161,12 @@ InputField.addEventListener("keypress", (e) => {
 for (let i = 0; i < ItemsInNavBar.length; i++) {
     ItemsInNavBar[i].addEventListener("click", () => {
         const ClickedElement = ItemsInNavBar[i].className.split(" ");
-        CheckActiveItemInNav(ClickedElement[1]);
+
+        const hasImagePlaceHolder =
+            document.getElementById("images-placeholder");
+
+        if (hasImagePlaceHolder) {
+            CheckActiveItemInNav(ClickedElement[1]);
+        }
     });
 }
