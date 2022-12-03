@@ -45,29 +45,57 @@ const CheckActiveItemInNav = (clickedNavItem) => {
     });
 };
 
+// Action for creating html elements dynamically
+const CreateElement = (Element, Class, Attribute) => {
+    const element = document.createElement(Element); // create element
+
+    Class ? element.classList.add(Class) : null; // add class to created element
+    Attribute ? element.setAttribute(Attribute.type, Attribute.name) : null; // add Attribute to created element
+
+    return element; // return created element
+};
+
 // Action for adding images in UI.
 const AppendImagesInUI = (Images) => {
-    // Create a placeholder to hold all images.
-    const DivElement = document.createElement("div");
-    DivElement.setAttribute("id", "images-placeholder");
-    DivElement.classList.add("SearchImagesPlaceholder");
+    // Create UI layout for result display
+    const TotalColumnsInUI = 3;
+    const TotalImages = Images.length;
+    const ImagesPerColumn = TotalImages / TotalColumnsInUI;
 
-    Images?.map((image, index) => {
-        const FetchedImageSource = image?.urls?.regular; // Feteched image source form API.
+    let ImageLowerIndex = 0;
+    let ImageUpperIndex = ImagesPerColumn;
 
-        // Card to hold a single image.
-        const CardElement = document.createElement("div");
-        CardElement.setAttribute("id", `search-image-card-${index}`);
-        CardElement.classList.add("SearchImageCard");
-
-        // Create an img element.
-        const ImageElement = document.createElement("img");
-        ImageElement.setAttribute("src", FetchedImageSource);
-
-        CardElement.appendChild(ImageElement); // Appending img element inside the image card.
-        DivElement.appendChild(CardElement); // Appending image card inside the image placeholder.
-        SearchResultBox.appendChild(DivElement); // Appending image placeholder inside the SearchResultBox.
+    const Row = CreateElement("div", "Row", {
+        type: "id",
+        name: "images-placeholder",
     });
+
+    for (let i = 1; i <= TotalColumnsInUI; i++) {
+        const Column = CreateElement("div", "Column");
+
+        for (let j = ImageLowerIndex; j < ImageUpperIndex; j++) {
+            const FetchedImageSource = Images[j]?.urls?.regular; // Feteched image source form API.
+
+            const CardElement = CreateElement("div", "SearchImageCard", {
+                type: "id",
+                name: `search-image-card-${j}`,
+            });
+
+            const ImageElement = CreateElement("img", "", {
+                type: "src",
+                name: FetchedImageSource,
+            });
+
+            CardElement.appendChild(ImageElement); // Appending img element inside the image card.
+            Column.appendChild(CardElement); //Appending card element inside the column.
+        }
+
+        Row.appendChild(Column); //Appending column inside the row.
+        SearchResultBox.appendChild(Row); //Appending row inside the search result box.
+
+        ImageLowerIndex = ImageLowerIndex + ImagesPerColumn; // Update image select lower index.
+        ImageUpperIndex = ImageUpperIndex + ImagesPerColumn; // Update image select upper index.
+    }
 
     RemoveLoader();
 };
