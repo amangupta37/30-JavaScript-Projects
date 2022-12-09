@@ -23,13 +23,17 @@ const ConfigureRequest = (SearchQuery) => {
 // Action for removing search results.
 const ClearPreviousSearchResult = () => {
     const hasImagePlaceHolder = document.getElementById("images-placeholder");
+    const hasImageSearchSuggestions = document.getElementById(
+        "search-suggestion-image-holder"
+    );
 
+    if (hasImageSearchSuggestions) {
+        hasImageSearchSuggestions.remove(); // Remove all search suggestion images in UI.
+    }
     if (hasImagePlaceHolder) {
         hasImagePlaceHolder.remove(); // Remove all search result images in UI.
     }
-
     RemoveSearchSuggestions(); // Remove search related suggestion section.
-
     RemoveErrorBox(); // Remove if any error screen present.
 };
 
@@ -38,14 +42,17 @@ const CheckActiveItemInNav = (clickedNavItem) => {
     const NavItems = ["All", "Image", "Videos", "News", "Books", "More"]; // Items present in nav bar.
     NavItems.map((NavItem, index) => {
         if (NavItem === clickedNavItem) {
-            ItemsInNavBar[index].classList.add("AciveItem");
+            clickedNavItem === "Image"
+                ? ItemsInNavBar[index].classList.add("ActiveItem")
+                : ItemsInNavBar[index].classList.add("InActive");
         } else {
-            ItemsInNavBar[index].classList.remove("AciveItem");
+            ItemsInNavBar[index].classList.remove("InActive");
+            ItemsInNavBar[index].classList.remove("ActiveItem");
         }
     });
 };
 
-// Action for creating html elements dynamically
+// Action for creating html elements dynamically.
 const CreateElement = (Element, Class, Attribute) => {
     const element = document.createElement(Element); // create element
 
@@ -53,6 +60,40 @@ const CreateElement = (Element, Class, Attribute) => {
     Attribute ? element.setAttribute(Attribute.type, Attribute.name) : null; // add Attribute to created element
 
     return element; // return created element
+};
+
+// Action for handling search suggestions section.
+const AddSearchSuggestions = (Images) => {
+    const SuggestionImageHolder = CreateElement(
+        "div",
+        "SuggestionImageHolder",
+        { type: "id", name: "search-suggestion-image-holder" }
+    );
+    Images?.map((item, index) => {
+        const SuggestionCard = CreateElement("div", "SuggestionCard", {
+            type: "id",
+            name: "suggestion-card",
+        });
+
+        if (index <= 4) {
+            const ImageSrc = item?.urls?.thumb;
+            const SuggestionImage = CreateElement("div", "SuggestionImage");
+
+            const ImageElement = CreateElement("img", "", {
+                type: "src",
+                name: ImageSrc,
+            });
+
+            SuggestionImage.appendChild(ImageElement);
+            SuggestionCard.appendChild(SuggestionImage);
+            SuggestionImageHolder.appendChild(SuggestionCard);
+            SuggestionCardSection.appendChild(SuggestionImageHolder);
+        }
+    });
+
+    SuggestionImageHolder.style.display = "flex";
+    SuggestionImageHolder.style.gap = "2rem";
+    SuggestionCardSection.style.display = "block";
 };
 
 // Action for adding images in UI.
@@ -69,6 +110,8 @@ const AppendImagesInUI = (Images) => {
         type: "id",
         name: "images-placeholder",
     });
+
+    AddSearchSuggestions(Images);
 
     for (let i = 1; i <= TotalColumnsInUI; i++) {
         const Column = CreateElement("div", "Column");
@@ -127,11 +170,6 @@ const RemoveLoader = () => {
     Loader.style.display = "none";
 };
 
-// Action for handling search suggestions section.
-const AddSearchSuggestions = () => {
-    SuggestionCardSection.style.display = "flex";
-};
-
 const RemoveSearchSuggestions = () => {
     SuggestionCardSection.style.display = "none";
 };
@@ -144,7 +182,6 @@ const FetchUserQuery = (UserQuery) => {
             const QueryResponse = fetechedQuery?.results;
 
             if (QueryResponse.length > 0) {
-                AddSearchSuggestions();
                 AppendImagesInUI(QueryResponse);
             } else {
                 const ErrorCode = 4000; // Custom status code for search result not found.
