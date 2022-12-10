@@ -1,9 +1,27 @@
 :root {
-    --primary: #ffffff;
-    --secondary: #39495e;
-    --tertiary: #273d49cc;
-    --color-grey: #97a1a9;
-    --color-dirtyblue: #283a46;
+    /* white */
+    --primary-white: #ffffff;
+    --secondary-white: #fef7e0;
+
+    /* grey */
+    --grey-100: #e0e0e0;
+    --grey-200: #c1c3c4;
+    --grey-230: #dfe1e5;
+    --grey-250: #5f6368;
+    --grey-300: #3c4043;
+    --grey-400: #202124;
+
+    /* royalblue */
+    --primary-blue: #2962ff;
+    --secondary-blue: #1a73e8;
+
+    /* orange */
+    --primary-orange: #f4511e;
+
+    /* black */
+    --primary-black: #000000de;
+    --secondary-black: #20212447;
+    --ternary-black: #00000059;
 }
 *,
 *::after,
@@ -21,6 +39,8 @@ html {
 
 img {
     width: 100%;
+    height: 100%;
+    object-fit: contain;
 }
 
 input {
@@ -31,7 +51,7 @@ input {
     padding-left: 2rem;
     font-weight: 400;
     font-size: 1.4rem;
-    color: #000000de;
+    color: var(--primary-black);
     word-wrap: break-word;
 }
 
@@ -42,13 +62,22 @@ a {
 header {
     position: sticky;
     top: 0;
-    background-color: #ffffff;
+    background-color: var(--primary-white);
     z-index: 1000;
 }
 
 span {
-    color: #2962ff;
+    color: var(--primary-blue);
     cursor: pointer;
+}
+nav {
+    -webkit-tap-highlight-color: transparent;
+    -webkit-touch-callout: none;
+    -webkit-user-select: none;
+    -khtml-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
 }
 
 .HeaderContent {
@@ -68,11 +97,15 @@ span {
     width: 90px;
     height: 34px;
 }
+.HeaderLogo:hover {
+    cursor: pointer;
+}
+
 .HeaderSerachBar {
     width: 85%;
     height: 50px;
     border-radius: 200px;
-    box-shadow: 0 1px 6px 0 #20212447;
+    box-shadow: 0 1px 6px 0 var(--secondary-black);
     padding: 1rem;
     display: flex;
     align-items: center;
@@ -102,7 +135,7 @@ span {
     display: flex;
     justify-content: flex-end;
     align-items: flex-end;
-    background-color: white;
+    background-color: var(--primary-white);
     padding: 1rem;
 }
 .Tools {
@@ -121,17 +154,17 @@ span {
     width: 32px;
     height: 32px;
     border: none;
-    background-color: #f4511e;
+    background-color: var(--primary-orange);
     border-radius: 50%;
     display: grid;
     place-items: center;
-    color: #ffff;
+    color: var(--primary-white);
     font-weight: 400;
 }
 .NavBar {
     display: flex;
     margin-top: 0.5rem;
-    border-bottom: 0.1px solid #c1c3c4;
+    border-bottom: 0.1px solid var(--grey-200);
 }
 .NavBarLeftContent {
     width: 100%;
@@ -149,7 +182,7 @@ span {
     padding-bottom: 2rem;
     display: flex;
     gap: 0.5rem;
-    color: #5f6368;
+    color: var(--grey-250);
     position: relative;
 }
 .Item:hover {
@@ -158,10 +191,16 @@ span {
 .ItemText {
     font-size: 1.6rem;
 }
-.AciveItem {
-    color: #1a73e8;
+.ActiveItem {
+    color: var(--secondary-blue);
     cursor: pointer;
-    border-bottom: 3px solid #1a73e8;
+    border-bottom: 3px solid var(--secondary-blue);
+    border-radius: 0.1rem;
+}
+.InActive {
+    color: var(--grey-250);
+    cursor: pointer;
+    border-bottom: 3px solid var(--grey-250);
     border-radius: 0.1rem;
 }
 
@@ -180,7 +219,7 @@ span {
 }
 .Operation:hover {
     border: none;
-    color: #000000de;
+    color: var(--primary-black);
 }
 
 .SearchSuggestions {
@@ -190,12 +229,11 @@ span {
     display: none;
 }
 .SuggestionCard {
-    width: 150px;
+    min-width: 150px;
     height: 60px;
-    border: 0.1px solid #c1c3c4;
+    border: 0.1px solid var(--grey-200);
     border-radius: 1rem;
     display: flex;
-    padding: 0.5rem;
     gap: 2rem;
     align-items: center;
 }
@@ -210,6 +248,9 @@ span {
 .SuggestionImage img {
     width: 100%;
     height: 100%;
+    object-fit: cover;
+    border-top-left-radius: 1rem;
+    border-bottom-left-radius: 1rem;
 }
 
 .SuggestionText {
@@ -221,7 +262,7 @@ span {
 .SuggestionText h3 {
     font-weight: 500;
     font-size: 1.8rem;
-    color: #000000de;
+    color: var(--primary-black);
 }
 
 .SearchImagesPlaceholder {
@@ -232,7 +273,7 @@ span {
 }
 
 .SearchImageCard {
-    background-color: #ffffff;
+    background-color: var(--primary-white);
 }
 
 .SearchImageCard img {
@@ -241,7 +282,7 @@ span {
 }
 
 .SearchImageCard:hover {
-    box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+    box-shadow: var(--ternary-black) 0px 5px 15px;
     position: relative;
     z-index: 1;
     cursor: pointer;
@@ -253,7 +294,7 @@ span {
 .ResultNotFound {
     display: none;
     padding: 2rem;
-    border: 1px solid #dfe1e5;
+    border: 1px solid var(--grey-230);
     gap: 4rem;
 }
 
@@ -263,7 +304,7 @@ span {
     width: 60px;
     height: 60px;
     padding: 0.5rem;
-    background-color: #fef7e0;
+    background-color: var(--secondary-white);
     border-radius: 1rem;
     display: grid;
     place-items: center;
@@ -274,13 +315,13 @@ span {
     font-size: 2.4rem;
     font-weight: 400;
     line-height: 32px;
-    color: #202124;
+    color: var(--grey-400);
 }
 .SerachTips h4 {
     font-size: 1.4rem;
     font-weight: 400;
     line-height: 3.2rem;
-    color: #202124;
+    color: var(--grey-400);
 }
 
 .TipsList {
@@ -288,7 +329,7 @@ span {
     font-size: 1.4rem;
     font-weight: 400;
     line-height: 2rem;
-    color: #3c4043;
+    color: var(--grey-300);
 }
 
 .SerachTips p {
@@ -296,7 +337,7 @@ span {
     font-weight: 400;
     line-height: 2rem;
     margin-top: 1rem;
-    color: #3c4043;
+    color: var(--grey-300);
 }
 .SomethingWentWrong {
     width: 100%;
@@ -306,7 +347,7 @@ span {
 }
 .WentWrongBox {
     width: 50%;
-    background-color: #e0e0e0;
+    background-color: var(--grey-100);
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -324,7 +365,7 @@ span {
     font-size: 3rem;
     font-weight: 400;
     line-height: 3.2rem;
-    color: #202124;
+    color: var(--grey-400);
 }
 
 .WarningText p {
@@ -332,7 +373,7 @@ span {
     font-size: 1.4rem;
     font-weight: 400;
     line-height: 4rem;
-    color: #202124;
+    color: var(--grey-400);
 }
 
 .Loader {
@@ -344,6 +385,14 @@ span {
 
 .DeviceSupportWarning {
     display: none;
+}
+.Row {
+    display: flex;
+    gap: 2rem;
+    padding: 2rem;
+}
+.SearchImageCard {
+    margin-top: 2rem;
 }
 
 /* disable UI for mobile and tablets */
@@ -378,6 +427,6 @@ span {
         font-size: 3rem;
         line-height: 5rem;
         text-align: center;
-        color: #5f6368;
+        color: var(--grey-250);
     }
 }
