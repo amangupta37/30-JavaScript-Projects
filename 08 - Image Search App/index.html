@@ -3,47 +3,200 @@
     <head>
         <meta charset="UTF-8" />
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-        <title>Image Search Engine</title>
+        <title>Google Images</title>
         <link href="style.css" rel="stylesheet" />
+        <link rel="icon" type="image/x-icon" href="./Assets/favicon.ico" />
         <link
             rel="stylesheet"
             href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"
         />
     </head>
     <body>
-        <div id="header-box">
-            <h1>Image Search Engine</h1>
-            <img id="chm" src="./Assets/chm.jpeg" />
-        </div>
-        <div id="bg-img">
-            <form id="form-box" autocomplete="off">
-                <div id="icon-box">
-                    <img id="icon" src="./Assets/icon.png" />
+        <header>
+            <div class="HeaderContent">
+                <div class="HeaderLeft">
+                    <div class="HeaderLogo">
+                        <img
+                            src="./Assets/Header/google.png"
+                            id="google-logo"
+                            alt="logo"
+                        />
+                    </div>
+                    <div class="HeaderSerachBar">
+                        <input
+                            type="text"
+                            id="input-field"
+                            autocomplete="off"
+                        />
+                        <div class="Icons">
+                            <div class="Icon Voice">
+                                <img src="./Assets/Header/mic.png" alt="mic" />
+                            </div>
+                            <div class="Icon Camera">
+                                <img
+                                    src="https://fonts.gstatic.com/s/i/productlogos/lens_camera/v1/192px.svg"
+                                    alt="lens"
+                                />
+                            </div>
+                            <div class="Icon Search" id="search-button">
+                                <img
+                                    src="./Assets/Header/search.png"
+                                    alt="search"
+                                />
+                            </div>
+                        </div>
+                    </div>
                 </div>
+                <div class="HeaderRight">
+                    <div class="Tools">
+                        <div class="ToolsIcon Settings">
+                            <img src="./Assets/Header/setting.svg" alt="" />
+                        </div>
+                        <div class="ToolsIcon Menu">
+                            <img src="./Assets/Header/menu.svg" alt="" />
+                        </div>
 
-                <div id="styl-inpt">
-                    <input
-                        id="input-field"
-                        type="text"
-                        placeholder="Search Your Image here !!!"
-                        required
-                    />
+                        <a
+                            href="https://github.com/amangupta37"
+                            target="_blank"
+                        >
+                            <div class="ToolsIcon User">
+                                <h1>A</h1>
+                            </div>
+                        </a>
+                    </div>
                 </div>
+            </div>
+        </header>
+        <nav>
+            <div class="NavBar">
+                <div class="NavBarLeftContent">
+                    <div class="NavList">
+                        <div class="Item All">
+                            <div class="ItemIcon">
+                                <img src="./Assets/Nav/Search.svg" alt="" />
+                            </div>
+                            <div class="ItemText">All</div>
+                        </div>
+                        <div class="Item Image">
+                            <div class="ItemIcon">
+                                <img
+                                    id="nav-img-icon"
+                                    src="./Assets/Nav/Image.svg"
+                                    alt=""
+                                />
+                            </div>
+                            <div class="ItemText">Images</div>
+                        </div>
+                        <div class="Item Videos">
+                            <div class="ItemIcon">
+                                <img src="./Assets/Nav/Video.svg" alt="" />
+                            </div>
+                            <div class="ItemText">Videos</div>
+                        </div>
+                        <div class="Item News">
+                            <div class="ItemIcon">
+                                <img src="./Assets/Nav/News.svg" alt="" />
+                            </div>
+                            <div class="ItemText">News</div>
+                        </div>
+                        <div class="Item Books">
+                            <div class="ItemIcon">
+                                <img src="./Assets/Nav/Books.svg" alt="" />
+                            </div>
+                            <div class="ItemText">Books</div>
+                        </div>
+                        <div class="Item More">
+                            <div class="ItemIcon">
+                                <img src="./Assets/Nav/More.svg" alt="" />
+                            </div>
+                            <div class="ItemText">More</div>
+                        </div>
+                    </div>
+                </div>
+                <div class="NavBarRightContent">
+                    <div class="Operations">
+                        <div class="Item Operation">
+                            <div class="ItemIcon">
+                                <img
+                                    src="./Assets/Nav/Collections.svg"
+                                    alt=""
+                                />
+                            </div>
+                            <div class="ItemText">Collections</div>
+                        </div>
+                        <div class="Item Operation">
+                            <div class="ItemText">SafeSearch on</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </nav>
 
-                <div id="btn">
-                    <button id="search-button" type="button">
-                        <div>Search...<i class="fa fa-search"></i></div>
-                    </button>
+        <section
+            class="SearchSuggestions"
+            id="search-suggestion-card"
+        ></section>
+        <section class="SearchImagesResult" id="search-results">
+            <div class="Loader" id="loader">
+                <div class="LodaerPlaceholder">
+                    <img src="./Assets/Loader/Loader.svg" />
                 </div>
-                <div id="load-box">
-                    <img id="reset-button" src="./Assets/load.png" />
-                    <p id="load-text">Reload</p>
+            </div>
+            <div class="ErrorTextBox" id="error-text-box">
+                <div class="ResultNotFound" id="result-not-found">
+                    <div class="NotFoundLogo">
+                        <img src="./Assets/Error/Search.svg" alt="" />
+                    </div>
+                    <div class="NotFoundHelperText">
+                        <h2>
+                            Looks like there aren’t any matches for your search
+                        </h2>
+
+                        <div class="SerachTips">
+                            <h4>Search tips</h4>
+                            <div class="TipsList">
+                                <ul>
+                                    <li>
+                                        Make sure all words are spelled
+                                        correctly
+                                    </li>
+                                    <li>Try different or more general words</li>
+                                    <li>Try fewer words</li>
+                                </ul>
+                            </div>
+
+                            <p>
+                                Check out <span>other tips</span> for searching
+                                on Google
+                            </p>
+                        </div>
+                    </div>
                 </div>
-            </form>
-        </div>
-        <div id="box">
-            <p id="helper-text"></p>
-        </div>
+                <div class="SomethingWentWrong" id="something-went-wrong">
+                    <div class="WentWrongBox">
+                        <div class="WarningIcon">
+                            <img src="./Assets/Error/warning.png" alt="" />
+                        </div>
+                        <div class="WarningText">
+                            <h1>Oops! Something went wrong.</h1>
+                            <p>Try Searching again or Reloading the page</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <section class="DeviceSupportWarning">
+            <div class="WarningWrapper">
+                <div class="WarningIcon">
+                    <img src="./Assets/Error/warning.png" alt="" />
+                </div>
+                <h1>
+                    Currently Only Supports<br />
+                    For Desktop
+                </h1>
+            </div>
+        </section>
     </body>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
     <script type="module" src="App.js"></script>
