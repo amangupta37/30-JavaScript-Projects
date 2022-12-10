@@ -11,6 +11,7 @@ const ResultNotFoundModal = document.getElementById("result-not-found");
 const SomethingWentWrongModal = document.getElementById("something-went-wrong");
 const NavImageIcon = document.getElementById("nav-img-icon");
 const Loader = document.getElementById("loader");
+const GoogleLogo = document.getElementById("google-logo");
 
 // Total number of images requested.
 const NumberOfImagesPerPage = 30;
@@ -258,3 +259,7 @@ for (let i = 0; i < ItemsInNavBar.length; i++) {
         }
     });
 }
+
+GoogleLogo.addEventListener("click", () => {
+    window.location.reload();
+});
