@@ -19,7 +19,11 @@
                         <img src="./Assets/Header/google.png" alt="logo" />
                     </div>
                     <div class="HeaderSerachBar">
-                        <input type="text" id="input-field" />
+                        <input
+                            type="text"
+                            id="input-field"
+                            autocomplete="off"
+                        />
                         <div class="Icons">
                             <div class="Icon Voice">
                                 <img src="./Assets/Header/mic.png" alt="mic" />
@@ -72,7 +76,11 @@
                         </div>
                         <div class="Item Image">
                             <div class="ItemIcon">
-                                <img src="./Assets/Nav/Image.svg" alt="" />
+                                <img
+                                    id="nav-img-icon"
+                                    src="./Assets/Nav/Image.svg"
+                                    alt=""
+                                />
                             </div>
                             <div class="ItemText">Images</div>
                         </div>
@@ -120,33 +128,11 @@
                 </div>
             </div>
         </nav>
-        <section class="SearchSuggestions" id="search-suggestion-card">
-            <div class="SuggestionCard">
-                <div class="SuggestionImage">
-                    <img src="./Assets/devlogo.jpeg" alt="" />
-                </div>
-                <div class="SuggestionText">
-                    <h3>doodle</h3>
-                </div>
-            </div>
-            <div class="SuggestionCard">
-                <div class="SuggestionImage">
-                    <img src="./Assets/chm.jpeg" alt="" />
-                </div>
-                <div class="SuggestionText">
-                    <h3>doodle</h3>
-                </div>
-            </div>
 
-            <div class="SuggestionCard">
-                <div class="SuggestionImage">
-                    <img src="./Assets/devlogo.jpeg" alt="" />
-                </div>
-                <div class="SuggestionText">
-                    <h3>doodle</h3>
-                </div>
-            </div>
-        </section>
+        <section
+            class="SearchSuggestions"
+            id="search-suggestion-card"
+        ></section>
         <section class="SearchImagesResult" id="search-results">
             <div class="Loader" id="loader">
                 <div class="LodaerPlaceholder">
