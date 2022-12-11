@@ -67,12 +67,12 @@ const CheckActiveItemInNav = (clickedNavItem) => {
 
 // Create dynamic html elements.
 const CreateElement = (Element, Class, Attribute) => {
-    const element = document.createElement(Element); // create element
+    const element = document.createElement(Element); // Create element.
 
-    Class ? element.classList.add(Class) : null; // add class to created element
-    Attribute ? element.setAttribute(Attribute.type, Attribute.name) : null; // add Attribute to created element
+    Class ? element.classList.add(Class) : null; // Add class to created element.
+    Attribute ? element.setAttribute(Attribute.type, Attribute.name) : null; // Add Attribute to created element.
 
-    return element; // return created element
+    return element; // Return created element.
 };
 
 // Handle error popup.
