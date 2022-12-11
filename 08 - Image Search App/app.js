@@ -16,13 +16,13 @@ const GoogleLogo = document.getElementById("google-logo");
 // Total number of images requested.
 const NumberOfImagesPerPage = 30;
 
-// Action for configuring query params.
+// Configure query params.
 const ConfigureRequest = (SearchQuery) => {
     const getRequestPramsConfigure = `${URL}${SearchQuery}${ClientId}${NumberOfImagesPerPage}`;
     return getRequestPramsConfigure;
 };
 
-// Action for removing search results.
+// Remove search results.
 const ClearPreviousSearchResult = () => {
     const hasImagePlaceHolder = document.getElementById("images-placeholder");
     const hasImageSearchSuggestions = document.getElementById(
@@ -39,6 +39,7 @@ const ClearPreviousSearchResult = () => {
     RemoveErrorBox(); // Remove if any error screen present.
 };
 
+// Style active and inactive tabs in nav.
 const isActiveTabSwitch = (isTabActive, TabPosition) => {
     if (isTabActive) {
         NavImageIcon.src = "./Assets/Nav/ImageActive.svg";
@@ -49,7 +50,7 @@ const isActiveTabSwitch = (isTabActive, TabPosition) => {
     }
 };
 
-// Action for handling active item in nav.
+// Handle active and inactive tabs in nav.
 const CheckActiveItemInNav = (clickedNavItem) => {
     const NavItems = ["All", "Image", "Videos", "News", "Books", "More"]; // Items present in nav bar.
     NavItems.map((NavItem, index) => {
@@ -64,7 +65,7 @@ const CheckActiveItemInNav = (clickedNavItem) => {
     });
 };
 
-// Action for creating html elements dynamically.
+// Create dynamic html elements.
 const CreateElement = (Element, Class, Attribute) => {
     const element = document.createElement(Element); // create element
 
@@ -74,7 +75,7 @@ const CreateElement = (Element, Class, Attribute) => {
     return element; // return created element
 };
 
-// Action for handling error popup.
+// Handle error popup.
 const ShowErrorBox = (ErrorCode) => {
     ErrorTextBox.style.display = "block";
     if (ErrorCode === 4000) {
@@ -86,32 +87,37 @@ const ShowErrorBox = (ErrorCode) => {
     RemoveLoader();
 };
 
+// Remove error popup from UI.
 const RemoveErrorBox = () => {
     ErrorTextBox.style.display = "none";
     ResultNotFoundModal.style.display = "none";
     SomethingWentWrongModal.style.display = "none";
 };
 
-// Action for handling loader.
+// Handle add loader in UI.
 const AddLoader = () => {
     Loader.style.display = "grid";
 };
 
+// Handle remove loader form UI.
 const RemoveLoader = () => {
     Loader.style.display = "none";
 };
 
+// Handle remove related search result from UI.
 const RemoveSearchSuggestions = () => {
     SuggestionCardSection.style.display = "none";
 };
 
-// Action for handling search suggestions section.
+// Add related search result section in UI.
 const AddSearchSuggestions = (Images, UserQuery) => {
     const SuggestionImageHolder = CreateElement(
         "div",
         "SuggestionImageHolder",
         { type: "id", name: "search-suggestion-image-holder" }
     );
+
+    // Append related search result images in search suggestions card.
     Images?.map((item, index) => {
         const SuggestionCard = CreateElement("div", "SuggestionCard", {
             type: "id",
@@ -149,9 +155,9 @@ const AddSearchSuggestions = (Images, UserQuery) => {
     SuggestionCardSection.style.display = "block";
 };
 
-// Action for adding images in UI.
+// Add images in UI.
 const AppendImagesInUI = (Images, UserQuery) => {
-    // Create UI layout for result display
+    // Create UI layout for image gallery.
     const TotalColumnsInUI = 3;
     const TotalImages = Images?.length;
     const ImagesPerColumn = TotalImages / TotalColumnsInUI;
@@ -164,8 +170,9 @@ const AppendImagesInUI = (Images, UserQuery) => {
         name: "images-placeholder",
     });
 
-    AddSearchSuggestions(Images, UserQuery);
+    AddSearchSuggestions(Images, UserQuery); // Create related search result section.
 
+    // Create gallery view for actual search result section.
     for (let i = 1; i <= TotalColumnsInUI; i++) {
         const Column = CreateElement("div", "Column");
 
@@ -198,7 +205,7 @@ const AppendImagesInUI = (Images, UserQuery) => {
     RemoveLoader();
 };
 
-// Action for handling API call.
+// Handle API call.
 const FetchUserQuery = (UserQuery) => {
     fetch(ConfigureRequest(UserQuery))
         .then((response) => response.json())
@@ -220,7 +227,7 @@ const FetchUserQuery = (UserQuery) => {
         });
 };
 
-// Action for initiating search.
+// Handle initiate search.
 const InitiateUserQuerySearch = (UserQuery) => {
     if (UserQuery !== "") {
         ClearPreviousSearchResult();
@@ -230,12 +237,13 @@ const InitiateUserQuerySearch = (UserQuery) => {
     }
 };
 
-// Add event listeners.
+// Add event listener for search button.
 SearchButton.addEventListener("click", () => {
     const UserQuery = InputField.value;
     InitiateUserQuerySearch(UserQuery);
 });
 
+// Add event listener for enter button.
 InputField.addEventListener("keypress", (e) => {
     const UserQuery = InputField?.value;
     const PressedkeyCode = e?.keyCode;
@@ -260,6 +268,7 @@ for (let i = 0; i < ItemsInNavBar.length; i++) {
     });
 }
 
+// Add event listener for google logo.
 GoogleLogo.addEventListener("click", () => {
     window.location.reload();
 });
