@@ -30,18 +30,18 @@ const ClearPreviousSearchResult = () => {
     );
 
     if (hasImageSearchSuggestions) {
-        hasImageSearchSuggestions.remove(); // Remove all search suggestion images in UI.
+        hasImageSearchSuggestions.remove(); // Remove related search result images.
     }
     if (hasImagePlaceHolder) {
-        hasImagePlaceHolder.remove(); // Remove all search result images in UI.
+        hasImagePlaceHolder.remove(); // Remove all search result.
     }
-    RemoveSearchSuggestions(); // Remove search related suggestion section.
+    RemoveSearchSuggestions(); // Remove related search result section.
     RemoveErrorBox(); // Remove if any error screen present.
 };
 
 // Style active and inactive tabs in nav.
-const isActiveTabSwitch = (isTabActive, TabPosition) => {
-    if (isTabActive) {
+const StyleTabSwitch = (isActiveTab, TabPosition) => {
+    if (isActiveTab) {
         NavImageIcon.src = "./Assets/Nav/ImageActive.svg";
         ItemsInNavBar[TabPosition].classList.add("ActiveItem");
     } else {
@@ -51,13 +51,14 @@ const isActiveTabSwitch = (isTabActive, TabPosition) => {
 };
 
 // Handle active and inactive tabs in nav.
-const CheckActiveItemInNav = (clickedNavItem) => {
+const CheckTabStatusInNav = (clickedNavItem) => {
     const NavItems = ["All", "Image", "Videos", "News", "Books", "More"]; // Items present in nav bar.
     NavItems.map((NavItem, index) => {
         if (NavItem === clickedNavItem) {
+            // Make tab active for "Image tab" and inactive for any other tabs.
             clickedNavItem === "Image"
-                ? isActiveTabSwitch(true, index)
-                : isActiveTabSwitch(false, index);
+                ? StyleTabSwitch(true, index)
+                : StyleTabSwitch(false, index);
         } else {
             ItemsInNavBar[index].classList.remove("InActive");
             ItemsInNavBar[index].classList.remove("ActiveItem");
@@ -191,12 +192,12 @@ const AppendImagesInUI = (Images, UserQuery) => {
                 });
 
                 CardElement.appendChild(ImageElement); // Appending img element inside the image card.
-                Column.appendChild(CardElement); //Appending card element inside the column.
+                Column.appendChild(CardElement); // Appending card element inside the column.
             }
         }
 
-        Row.appendChild(Column); //Appending column inside the row.
-        SearchResultBox.appendChild(Row); //Appending row inside the search result box.
+        Row.appendChild(Column); // Appending column inside the row.
+        SearchResultBox.appendChild(Row); // Appending row inside the search result box.
 
         ImageLowerIndex = ImageLowerIndex + ImagesPerColumn; // Update image select lower index.
         ImageUpperIndex = ImageUpperIndex + ImagesPerColumn; // Update image select upper index.
@@ -231,7 +232,7 @@ const FetchUserQuery = (UserQuery) => {
 const InitiateUserQuerySearch = (UserQuery) => {
     if (UserQuery !== "") {
         ClearPreviousSearchResult();
-        CheckActiveItemInNav("Image"); // Make image as default active item in nav.
+        CheckTabStatusInNav("Image"); // Make image as default active item in nav.
         AddLoader();
         FetchUserQuery(UserQuery);
     }
@@ -263,7 +264,7 @@ for (let i = 0; i < ItemsInNavBar.length; i++) {
             document.getElementById("images-placeholder");
 
         if (hasImagePlaceHolder) {
-            CheckActiveItemInNav(ClickedElement[1]);
+            CheckTabStatusInNav(ClickedElement[1]);
         }
     });
 }
