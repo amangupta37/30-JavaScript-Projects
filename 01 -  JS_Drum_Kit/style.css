@@ -1,56 +1,76 @@
+*,
+*::after,
+*::before {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: arial, sans-serif;
+}
 html {
-  font-size: 10px;
-  background: url('https://images.wallpaperscraft.com/image/headphones_map_travel_130342_3840x2400.jpg') bottom center;
-  background-size: cover;
+    font-size: 62.5%;
+    scroll-behavior: smooth;
+}
+body {
+    width: 100%;
+    height: 100vh;
+    background-color: black;
+}
+header {
+    width: 100%;
+    height: 50vh;
+    display: flex;
+    align-items: center;
+}
+kbd {
+    display: block;
+    font-size: 4rem;
 }
 
-body,html {
-  margin: 0;
-  padding: 0;
-  font-family: sans-serif;
+.title {
+    width: 100%;
+    font-size: 2.5rem;
+    font-family: sans-serif;
+    color: white;
+    text-align: center;
 }
-.show
-{
-  font-size: 25px;
-  font-family: sans-serif;
-  color: white;
+.keyboard {
+    width: 100%;
+    height: 50vh;
 }
 .keys {
-  display: flex;
-  flex: 1;
-  min-height: 100vh;
-  align-items: center;
-  justify-content: center;
+    display: flex;
+    flex: 1;
+    align-items: center;
+    justify-content: center;
 }
 
 .key {
-  border: .4rem solid black;
-  border-radius: .5rem;
-  margin: 1rem;
-  font-size: 1.5rem;
-  padding: 1rem .5rem;
-  transition: all .07s ease;
-  width: 10rem;
-  text-align: center;
-  color: white;
-  background: rgba(0,0,0,0.4);
-  text-shadow: 0 0 .5rem black;
+    border: 0.2rem solid #e0e0e0;
+    border-radius: 0.5rem;
+    margin: 1rem;
+    font-size: 1.5rem;
+    padding: 1rem 0.5rem;
+    transition: all 0.07s ease;
+    width: 10rem;
+    text-align: center;
+    color: white;
+    background: rgba(0, 0, 0, 0.4);
+    text-shadow: 0 0 0.5rem black;
+}
+
+.key:hover {
+    cursor: pointer;
 }
 
 .playing {
-  transform: scale(1.1);
-  border-color: #ffc600;
-  box-shadow: 0 0 1rem #ffc600;
-}
-
-kbd {
-  display: block;
-  font-size: 4rem;
+    transform: scale(1.1);
+    border-color: #ffc600;
+    box-shadow: 0 0 1rem #ffc600;
 }
 
 .sound {
-  font-size: 1.2rem;
-  text-transform: uppercase;
-  letter-spacing: .1rem;
-  color: #ffc600;
+    font-size: 1.2rem;
+    text-transform: uppercase;
+    letter-spacing: 0.1rem;
+    color: #ffc600;
 }
