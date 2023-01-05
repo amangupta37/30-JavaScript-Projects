@@ -1,6 +1,6 @@
-# 30-days-of-JavaScript
+# 30 JavaScript Projects
 
-30 days and 30 projects on Vanilla JavaScript
+List of 30 projects based on Vanilla JavaScript
 
 ---
 
