@@ -74,3 +74,26 @@ kbd {
     letter-spacing: 0.1rem;
     color: #ffc600;
 }
+
+.device-support {
+    display: none;
+}
+/* mobile view */
+@media screen and (max-width: 990px) {
+    body {
+        display: grid;
+        place-items: center;
+    }
+    .title {
+        display: none;
+    }
+    .keyboard {
+        display: none;
+    }
+    .device-support {
+        display: block;
+        font-size: 40px;
+        line-height: 120px;
+        padding: 10px;
+    }
+}
