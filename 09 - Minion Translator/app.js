@@ -1,29 +1,47 @@
-//console.log("hello world !!")
-const btn = document.getElementById("active-btn");
-const input = document.getElementById("txt-style");
-const output = document.getElementById("output-box");
+import { Encrypted_URL } from "./API.js";
+// Targeted Elements.
+const TranslateButton = document.getElementById("translate-button");
+const InputField = document.getElementById("input-field");
+const TranslatedTextPlaceholder = document.getElementById(
+    "translated-text-placeholder"
+);
 
-const url = "https://api.funtranslations.com/translate/minion.json";
-const encrypt_url = encodeURI(url);
+const ConfigureURL = (UserQuery) => {
+    return `${Encrypted_URL}?text=${UserQuery}`;
+};
 
-function getdata(datain) {
-    return encrypt_url + "?" + "text=" + datain;
-}
-function handelerror(error) {
-    console.log("error occured", error);
-    alert("Server is down now try after sometime");
-}
+const ShowErrorBox = (ErrorCode) => {
+    // Error Messages
+    const UnableToTranslate =
+        "Unable to translate the above text please try again !";
+    const UnableToFetch =
+        "Oops! Something went wrong. Try Searching again or Reloading the page";
+    return ErrorCode === 4000
+        ? (TranslatedTextPlaceholder.innerText = UnableToTranslate)
+        : (TranslatedTextPlaceholder.innerText = UnableToFetch);
+};
 
-btn.addEventListener("click", function () {
-    console.log(input.value);
-    const inputdata = input.value;
-
-    fetch(getdata(inputdata))
+const TranslateLanguage = (UserText) => {
+    fetch(ConfigureURL(UserText))
         .then((response) => response.json())
-        .then((json) => {
-            const convertedtext = json.contents.translated;
-            output.innerText = convertedtext;
+        .then((Translation) => {
+            if (Translation) {
+                const TranslatedText = Translation?.contents?.translated;
+                TranslatedTextPlaceholder.innerText = TranslatedText;
+            } else {
+                const ErrorCode = 4000; // Custom status code for search result not found.
+                ShowErrorBox(ErrorCode);
+            }
         })
+        .catch((err) => {
+            const ErrorCode = 5000; // Custom status code for failed to fetch data from server or any internal error.
+            setTimeout(() => {
+                ShowErrorBox(ErrorCode);
+            }, 5000);
+        });
+};
 
-        .catch(handelerror);
+TranslateButton.addEventListener("click", () => {
+    const UserText = InputField.value;
+    TranslateLanguage(UserText);
 });
