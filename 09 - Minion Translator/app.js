@@ -41,6 +41,14 @@ const TranslateLanguage = (UserText) => {
         });
 };
 
+InputField.addEventListener("input", (e) => {
+    if (InputField.value.trim()) {
+        TranslateButton.disabled = false;
+    } else {
+        TranslateButton.disabled = true;
+    }
+});
+
 TranslateButton.addEventListener("click", () => {
     const UserText = InputField.value;
     TranslateLanguage(UserText);
