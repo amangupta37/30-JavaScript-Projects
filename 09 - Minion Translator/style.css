@@ -60,7 +60,7 @@ p {
     position: relative;
 }
 
-#txt-style {
+#input-field {
     box-sizing: border-box;
     height: 12rem;
     width: 90%;
@@ -95,7 +95,7 @@ p {
     border: 1px solid whitesmoke;
     font-family: cursive;
 }
-#output-box {
+#translated-text-placeholder {
     box-sizing: border-box;
     background-color: #000;
     width: 90%;
