@@ -5,38 +5,53 @@ const InputField = document.getElementById("input-field");
 const TranslatedTextPlaceholder = document.getElementById(
     "translated-text-placeholder"
 );
-
+const ToolTip = document.getElementById("tool-tip");
 const ConfigureURL = (UserQuery) => {
     return `${Encrypted_URL}?text=${UserQuery}`;
 };
 
-const ShowErrorBox = (ErrorCode) => {
-    // Error Messages
-    const UnableToTranslate =
-        "Unable to translate the above text please try again !";
-    const UnableToFetch =
-        "Oops! Something went wrong. Try Searching again or Reloading the page";
-    return ErrorCode === 4000
-        ? (TranslatedTextPlaceholder.innerText = UnableToTranslate)
-        : (TranslatedTextPlaceholder.innerText = UnableToFetch);
+const ShowElement = (Element) => {
+    Element.style.display = "block";
+};
+const HideElement = (Element) => {
+    Element.style.display = "none";
+};
+
+const ResetTranslation = () => {
+    ToolTip.style.color = "whitesmoke";
+    HideElement(ToolTip);
+    HideElement(TranslatedTextPlaceholder);
+};
+
+const ShowErrorBox = (ErrorMessage) => {
+    ToolTip.style.color = "red";
+    ShowElement(ToolTip);
+    return (ToolTip.innerText = ErrorMessage);
 };
 
 const TranslateLanguage = (UserText) => {
+    ShowElement(ToolTip);
+    ToolTip.innerText = "Banana Translation will come here 👇";
+
     fetch(ConfigureURL(UserText))
         .then((response) => response.json())
         .then((Translation) => {
-            if (Translation) {
-                const TranslatedText = Translation?.contents?.translated;
+            const TranslatedText = Translation?.contents?.translated;
+            if (TranslatedText) {
                 TranslatedTextPlaceholder.innerText = TranslatedText;
+                ShowElement(TranslatedTextPlaceholder);
             } else {
-                const ErrorCode = 4000; // Custom status code for search result not found.
-                ShowErrorBox(ErrorCode);
+                const ErrorMessage = Translation?.error
+                    ? Translation?.error?.message
+                    : "Unable to translate the above text please try again later !";
+                ShowErrorBox(ErrorMessage);
             }
         })
         .catch((err) => {
-            const ErrorCode = 5000; // Custom status code for failed to fetch data from server or any internal error.
             setTimeout(() => {
-                ShowErrorBox(ErrorCode);
+                const ErrorMessage =
+                    "Oops! Something went wrong. Try Searching again or Reloading the page";
+                ShowErrorBox(ErrorMessage);
             }, 5000);
         });
 };
@@ -46,10 +61,13 @@ InputField.addEventListener("input", (e) => {
         TranslateButton.disabled = false;
     } else {
         TranslateButton.disabled = true;
+        HideElement(ToolTip);
+        ResetTranslation();
     }
 });
 
 TranslateButton.addEventListener("click", () => {
     const UserText = InputField.value;
+    ResetTranslation();
     TranslateLanguage(UserText);
 });
