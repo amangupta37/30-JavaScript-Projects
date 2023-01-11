@@ -44,6 +44,11 @@ p {
     font-family: cursive;
 }
 
+*::-webkit-scrollbar {
+    /*Chrome, Safari, Edge*/
+    display: none;
+}
+
 #header {
     height: 25rem;
     width: 100%;
