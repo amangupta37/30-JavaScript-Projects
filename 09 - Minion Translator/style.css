@@ -39,10 +39,6 @@ button[disabled] {
     color: #666666;
     cursor: none;
 }
-p {
-    font-size: 1.2rem;
-    font-family: cursive;
-}
 
 *::-webkit-scrollbar {
     /*Chrome, Safari, Edge*/
@@ -135,6 +131,12 @@ p {
     top: 10rem;
     width: 80%;
     margin: 0 auto;
+}
+
+#info p {
+    font-size: 1.2rem;
+    font-family: cursive;
+    text-align: center;
 }
 
 #new-fotter {
