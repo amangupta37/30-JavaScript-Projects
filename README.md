@@ -7,7 +7,7 @@ List of 30 projects based on Vanilla JavaScript
 | Project No   | Live Web Apps                                                              | Description                              |
 | ------------ | -------------------------------------------------------------------------- | ---------------------------------------- |
 | Project - 01 | [Drump Kit](https://drumkit-amangupta.netlify.app/)                        | Drum Kit by using vanilla JS             |
-| Project - 02 | [Clock](https://js-analog-clock-amangupta.netlify.app/)                    | Analog Clock by using vanilla JS         |
+| Project - 02 | [Analog Clock](https://analog-clock-amangupta.netlify.app/)                | Analog Clock by using vanilla JS         |
 | Project - 03 | [Image Editor](https://js-image-editor-amangupta.netlify.app/)             | Image Editor by using vanilla JS         |
 | Project - 04 | [Number Converter](https://js-number-converter-amangupta.netlify.app/)     | Number Converter by using vanilla JS     |
 | Project - 05 | [Calculator](https://calculator-amangupta.netlify.app/)                    | Calculator by using vanilla JS           |
