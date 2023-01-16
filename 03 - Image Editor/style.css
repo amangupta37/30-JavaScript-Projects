@@ -1,39 +1,81 @@
-
-    /*
+/*
       misc styles, nothing to do with CSS variables
     */
-    :root
-    {
-        --base:#ffc600;
-        --spacing:30px;
-        --blur:10px;
-    }
+:root {
+    --base: #ffc600;
+    --spacing: 30px;
+    --blur: 10px;
+}
 
-    img
-    {
-        padding: var(--spacing);
-        background: var(--base);
-        filter : var(--blur);
-    }
-    .hl
-    {
-        color: var(--base);
-    }
+img {
+    padding: var(--spacing);
+    background: var(--base);
+    filter: var(--blur);
+}
+.hl {
+    color: var(--base);
+}
 
+body {
+    text-align: center;
+    background: #193549;
+    color: white;
+    font-family: "helvetica neue", sans-serif;
+    font-weight: 100;
+    font-size: 50px;
+}
 
-    body {
-        text-align: center;
-        background: #193549;
-        color: white;
-        font-family: 'helvetica neue', sans-serif;
-        font-weight: 100;
-        font-size: 50px;
-      }
-  
-      .controls {
-        margin-bottom: 50px;
-      }
-  
-      input {
-        width: 100px;
-      }
+.controls {
+    margin-bottom: 50px;
+}
+
+input {
+    width: 100px;
+}
+
+.drag-area {
+    border: 2px dashed #fff;
+    height: 400px;
+    width: 700px;
+    margin: 0 auto;
+    border-radius: 5px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+}
+.drag-area.active {
+    border: 2px solid #fff;
+}
+.drag-area .icon {
+    font-size: 100px;
+    color: #fff;
+}
+.drag-area header {
+    font-size: 30px;
+    font-weight: 500;
+    color: #fff;
+}
+.drag-area span {
+    font-size: 25px;
+    font-weight: 500;
+    color: #fff;
+    margin: 10px 0 15px 0;
+}
+.drag-area button {
+    padding: 10px 25px;
+    font-size: 20px;
+    font-weight: 500;
+    border: none;
+    outline: none;
+    background: #fff;
+    color: #5256ad;
+    border-radius: 5px;
+    cursor: pointer;
+}
+.drag-area img {
+    height: 100%;
+    width: 100%;
+    object-fit: cover;
+    border-radius: 5px;
+}
