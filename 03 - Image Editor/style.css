@@ -27,6 +27,7 @@ body {
 
 .controls {
     margin-bottom: 50px;
+    display: none;
 }
 
 input {
