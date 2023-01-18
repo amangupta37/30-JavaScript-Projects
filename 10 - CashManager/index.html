@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <link rel="stylesheet" href="styles.css" />
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Cashify</title>
+  </head>
+  <body>
+    <header>
+      <div class="title">
+        <div class="title__logo">
+          <h1 id="title">Cash Manager</h1>
+          <img src="images/logo.svg" alt="logo" />
+        </div>
+      </div>
+    </header>
+    <div class="computation">
+      <section class="cash">
+        <div class="cash__title">
+          <p>Enter Details</p>
+        </div>
+        <div class="cash__processing">
+          <input type="number" id="bill" placeholder="bill amount" required />
+          <input type="number" id="paid" placeholder="paid amount" required />
+          <button type="button" id="btn">calculate</button>
+        </div>
+      </section>
+      <section class="payback" id="payback">
+        <div class="payback__titile"><h1>Total Payback Amount</h1></div>
+        <div class="payback__amount"></div>
+        <div class="payback__amountNumber"><h1 id="amount">Rs 0/-</h1></div>
+      </section>
+      <section class="show" id="show">
+        <div class="show__title">
+          <h1>Payback Statistics</h1>
+        </div>
+        <div class="show__table">
+          <div class="show__table__title">
+            <div class="title_container note-title">Notes</div>
+            <div class="title_container note-return">Notes to Return</div>
+          </div>
+
+          <div class="show__body">
+            <div class="table__box">
+              <div class="currency__available note-title">Rs 2000</div>
+              <div class="currency__return" id="2000">0</div>
+            </div>
+
+            <div class="table__box">
+              <div class="currency__available note-title">Rs 500</div>
+              <div class="currency__return" id="500">0</div>
+            </div>
+
+            <div class="table__box">
+              <div class="currency__available note-title">Rs 100</div>
+              <div class="currency__return" id="100">0</div>
+            </div>
+
+            <div class="table__box">
+              <div class="currency__available note-title">Rs 20</div>
+              <div class="currency__return" id="20">0</div>
+            </div>
+            <div class="table__box">
+              <div class="currency__available note-title">Rs 10</div>
+              <div class="currency__return" id="10">0</div>
+            </div>
+
+            <div class="table__box">
+              <div class="currency__available note-title">Rs 5</div>
+              <div class="currency__return" id="5">0</div>
+            </div>
+
+            <div class="table__box">
+              <div class="currency__available note-title">Rs 1</div>
+              <div class="currency__return" id="1">0</div>
+            </div>
+          </div>
+        </div>
+      </section>
+    </div>
+  </body>
+
+  <script src="app.js"></script>
+</html>
