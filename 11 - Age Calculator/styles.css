@@ -1,0 +1,104 @@
+@import url("https://fonts.googleapis.com/css2?family=Rubik:wght@300;400;500&display=swap");
+body{
+    font-family: "Rubik", sans-serif;
+    background-color: #0f7fe1;
+    font-size: 15px;
+    line-height: 1.5;
+    padding: 0;
+    margin: 0;
+}
+*{
+    box-sizing: border-box;
+    font-family: "Rubik", sans-serif;
+}
+.container{
+    width: 530px;
+    height: auto;
+    margin: 100px auto;
+    background-color: rgb(240, 243, 242);
+    border-radius: 25px;
+}
+.base{
+    width: 100%;
+    margin: 0;
+    overflow: hidden;
+    display: block;
+    float: none;
+    border-radius: 25px;
+}
+.block{
+    width: 135px;
+    padding: 5px 20px;
+    margin-left: 20px;
+    display: inline-block;
+
+}
+.base h4{
+    font-size: 26px;
+    text-align: center;
+    font-family: sans-serif;
+    padding: 7px 0px 7px 0px;
+    font-weight: bold;
+    margin-top: 0;
+    box-shadow: 0px 2px #bababa;
+    background: white;
+    font-size: 34px;
+    color: navy;
+}
+.title{
+    font-size: 18.5px;
+    text-align: left;
+    font-family: "Rubik", sans-serif;
+    font-weight: 500;
+    letter-spacing: 0.2px;
+    word-spacing: 2.7px;
+    margin-top: 1.8rem;
+    color: #0163d2;
+}
+input[type="text"]{
+    width: 120px;
+    margin: auto;
+    outline: none;
+    min-height: 50px;
+    border: 2px solid #1073d0;
+    padding: 12px;
+    background-color: #f7f7f7;
+    border-radius: 5px;
+    color: rgb(57,57,57);
+    font-size: 17px;
+}
+input[type="text"]:focus{
+    background-color: #ffffff;
+    border: 2px solid orange;
+    outline: none;
+}
+input[type="button"] {
+    width: 150px;
+    margin-left: 35%;
+    margin-top: 40px;
+    outline: none;
+    border: none;
+    border-radius: 9px;
+    padding: 14px 16px;
+    background-color: #0761b6;
+    color: #ffffff;
+    font-size: 16px;
+    text-align: center;
+}
+input[type="button"]:hover{
+    background-color: #003669;
+}
+#age{
+    display: block;
+    margin: 10px;
+    margin-top: 35px;
+    padding: 10px;
+    padding-bottom: 20px;
+    overflow: hidden;
+    font-family: verdana;
+    font-size: 23px;
+    font-weight: normal;
+    line-height: 1.5;
+    word-spacing: 2.7px;
+    color: rgb(57,57,57);
+}
